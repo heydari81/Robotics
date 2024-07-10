@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_stage_4.launch"/>
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_gazebo_rviz.launch"/>
+    <node pkg="laser_assembler" type="laser_scan_assembler" name="my_assembler">
+      <param name="max_scans" value="400"/>
+      <param name="fixed_frame" value="odom"/>
+    </node>
+    <node pkg="pcd_viewe" type="laser_node.py" name="lasersnod"/>
+  </launch>
